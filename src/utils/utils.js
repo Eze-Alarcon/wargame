@@ -19,4 +19,19 @@ function mapApiElement (data) {
   }
 }
 
+function loadBases () {
+  const bases = []
+  const letters = ['A', 'B', 'C', 'D', 'E', 'F']
+
+  for (let i = 0; i < 3; i++) {
+    const randomLetterIndex = Math.floor(Math.random() * letters.length)
+    const randomLetter = letters[randomLetterIndex]
+    const randomNumber = Math.floor(Math.random() * 6) + 1
+
+    bases.push(randomLetter + randomNumber)
+  }
+
+  return bases
+}
+
 export { mapApiArr, mapApiElement }

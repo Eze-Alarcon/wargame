@@ -10,7 +10,10 @@ function App () {
   const [basesSetup, setBasesSetup] = useState(false)
   const USER_BOARD = useBoard({ id: 1 })
   const CPU_BOARD = useBoard({ id: 2 })
-  const { updateTotalBases, maxBasesReached, resetBases, decreaseBases } = useBases()
+  const initialBases = CPU_BOARD.reduce((count, item) => {
+    return item.base === true ? count + 1 : count
+  }, 0)
+  const { updateTotalBases, maxBasesReached, resetBases, decreaseBases } = useBases({ initialBases })
   function soloGame () {
     setCpuGame(true)
   }
@@ -28,7 +31,7 @@ function App () {
   return (
     <main className='p-3 '>
       <section className="flex gap-8">
-        <Suspense fallback={<p>Cargando mapa</p>} >
+        <Suspense fallback={<h1>Cargando mapa</h1>}>
           {
             cpuGame && basesSetup && <>
                 <Board restartGame={restartGame}>
@@ -68,7 +71,7 @@ function App () {
       </section>
       <aside className='flex gap-3'>
       {
-        !basesSetup && <button className='mt-3 p-2 rounded-md border-2 bg-slate-300 hover:bg-slate-600' onClick={finishBases}>Colocar bases</button>
+        !basesSetup && <button className='mt-3 p-2 rounded-md border-2 bg-slate-300 hover:bg-slate-600' onClick={finishBases}>Iniciar partida</button>
       }
       {
         cpuGame &&

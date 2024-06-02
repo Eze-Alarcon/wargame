@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { GAME_CONFIG } from '../../test/inputs'
+import { placeBase } from '../api/put'
 
 BaseButton.propTypes = {
   item: PropTypes.object,
@@ -15,18 +16,18 @@ function BaseButton ({ item, index, updateTotalBases, maxBases, decreaseBases })
 
   const nextRow = index !== 0 && index % GAME_CONFIG.BOARD_SIZE === 0
 
-  async function placeBase (e) {
-    e.preventDefault()
-
+  async function baseLocation (id) {
     if (base) {
-      setBase(false)
+      await placeBase({ id })
+      setBase(prevState => !prevState)
       decreaseBases()
       return
     }
 
     if (maxBases()) { return }
 
-    setBase(true)
+    await placeBase({ id })
+    setBase(prevState => !prevState)
     updateTotalBases()
   }
 
@@ -35,7 +36,8 @@ function BaseButton ({ item, index, updateTotalBases, maxBases, decreaseBases })
         { nextRow && <br/> }
         <button
           className={`h-10 w-10 p-1 border-2 ${!base ? 'hover:bg-green-300 bg-none' : 'bg-green-500'}`}
-          onClick={placeBase}
+          onClick={() => baseLocation(item.coordinate)}
+          type='button'
           id={item.id}
         >
           <p>{item.coordinate}</p>

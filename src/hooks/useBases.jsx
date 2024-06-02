@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { GAME_CONFIG } from '../../test/inputs.js'
 
-const useBases = () => {
-  const [totalBases, setTotalBases] = useState(0)
+const useBases = ({ initialBases }) => {
+  const [totalBases, setTotalBases] = useState(initialBases)
 
   function maxBasesReached () {
     if (totalBases < GAME_CONFIG.MAX_BASES) {
