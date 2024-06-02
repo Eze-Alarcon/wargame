@@ -14,22 +14,11 @@ function App () {
     setCpuGame(true)
   }
 
-  // const [gameMap, setGameMap] = useState([])
-
-  // async function generateMap () {
-  //   const newGameMap = await innitGame()
-  //   setGameMap(newGameMap)
-  // }
-
   async function restartGame (e) {
     e.preventDefault()
-    // setGameMap([])
     resetBases()
   }
 
-  // useEffect(() => {
-  //   if (gameMap.length === 0) generateMap()
-  // }, [gameMap])
   return (
     <main className='p-3 '>
       <section className="flex gap-8">
