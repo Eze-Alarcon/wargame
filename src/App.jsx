@@ -73,7 +73,8 @@ function AttackButton ({ item, index }) {
     e.currentTarget.diabled = true
     setActive(true)
 
-    await updatePosition({ id: e.currentTarget.id })
+    // actualizar esto
+    await updatePosition({ id: e.currentTarget.id, idTablero: 1 })
   }
 
   return (

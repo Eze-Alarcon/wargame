@@ -5,14 +5,14 @@ async function getTable () {
 }
 
 async function newGame () {
-  const req = await fetch('../test/test.json')
+  const req = await fetch('http://localhost:3000/tablero/obtener?numero=1')
   const data = await req.json()
   const newArr = data.map((item) => {
     return {
-      coordinate: item.coordinate,
-      base: item.base,
-      attacked: item.attacked,
-      id: item.id
+      coordinate: item.position,
+      base: item.haveBase,
+      attacked: item.hasAttacked,
+      id: item._id
     }
   })
   saveTable(newArr)
