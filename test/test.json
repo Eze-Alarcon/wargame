@@ -1,0 +1,218 @@
+[
+  {
+    "coordinate": "A1",
+    "base": true,
+    "attacked": false,
+    "id": "1"
+  },
+  {
+    "coordinate": "A2",
+    "base": false,
+    "attacked": false,
+    "id": "2"
+  },
+  {
+    "coordinate": "A3",
+    "base": false,
+    "attacked": true,
+    "id": "3"
+  },
+  {
+    "coordinate": "A4",
+    "base": false,
+    "attacked": false,
+    "id": "4"
+  },
+  {
+    "coordinate": "A5",
+    "base": false,
+    "attacked": false,
+    "id": "5"
+  },
+  {
+    "coordinate": "A6",
+    "base": false,
+    "attacked": false,
+    "id": "6"
+  },
+  {
+    "coordinate": "B1",
+    "base": false,
+    "attacked": false,
+    "id": "7"
+  },
+  {
+    "coordinate": "B2",
+    "base": false,
+    "attacked": false,
+    "id": "8"
+  },
+  {
+    "coordinate": "B3",
+    "base": false,
+    "attacked": true,
+    "id": "9"
+  },
+  {
+    "coordinate": "B4",
+    "base": true,
+    "attacked": false,
+    "id": "10"
+  },
+  {
+    "coordinate": "B5",
+    "base": false,
+    "attacked": false,
+    "id": "11"
+  },
+  {
+    "coordinate": "B6",
+    "base": false,
+    "attacked": false,
+    "id": "12"
+  },
+  {
+    "coordinate": "C1",
+    "base": false,
+    "attacked": false,
+    "id": "13"
+  },
+  {
+    "coordinate": "C2",
+    "base": true,
+    "attacked": false,
+    "id": "14"
+  },
+  {
+    "coordinate": "C3",
+    "base": false,
+    "attacked": false,
+    "id": "15"
+  },
+  {
+    "coordinate": "C4",
+    "base": false,
+    "attacked": true,
+    "id": "16"
+  },
+  {
+    "coordinate": "C5",
+    "base": false,
+    "attacked": false,
+    "id": "17"
+  },
+  {
+    "coordinate": "C6",
+    "base": false,
+    "attacked": false,
+    "id": "18"
+  },
+  {
+    "coordinate": "D1",
+    "base": false,
+    "attacked": false,
+    "id": "19"
+  },
+  {
+    "coordinate": "D2",
+    "base": false,
+    "attacked": false,
+    "id": "20"
+  },
+  {
+    "coordinate": "D3",
+    "base": false,
+    "attacked": false,
+    "id": "21"
+  },
+  {
+    "coordinate": "D4",
+    "base": false,
+    "attacked": false,
+    "id": "22"
+  },
+  {
+    "coordinate": "D5",
+    "base": true,
+    "attacked": false,
+    "id": "23"
+  },
+  {
+    "coordinate": "D6",
+    "base": false,
+    "attacked": true,
+    "id": "24"
+  },
+  {
+    "coordinate": "E1",
+    "base": false,
+    "attacked": false,
+    "id": "25"
+  },
+  {
+    "coordinate": "E2",
+    "base": false,
+    "attacked": false,
+    "id": "26"
+  },
+  {
+    "coordinate": "E3",
+    "base": false,
+    "attacked": false,
+    "id": "27"
+  },
+  {
+    "coordinate": "E4",
+    "base": false,
+    "attacked": false,
+    "id": "28"
+  },
+  {
+    "coordinate": "E5",
+    "base": false,
+    "attacked": false,
+    "id": "29"
+  },
+  {
+    "coordinate": "E6",
+    "base": false,
+    "attacked": true,
+    "id": "30"
+  },
+  {
+    "coordinate": "F1",
+    "base": false,
+    "attacked": false,
+    "id": "31"
+  },
+  {
+    "coordinate": "F2",
+    "base": false,
+    "attacked": false,
+    "id": "32"
+  },
+  {
+    "coordinate": "F3",
+    "base": false,
+    "attacked": false,
+    "id": "33"
+  },
+  {
+    "coordinate": "F4",
+    "base": false,
+    "attacked": false,
+    "id": "34"
+  },
+  {
+    "coordinate": "F5",
+    "base": false,
+    "attacked": false,
+    "id": "35"
+  },
+  {
+    "coordinate": "F6",
+    "base": true,
+    "attacked": false,
+    "id": "36"
+  }
+]
