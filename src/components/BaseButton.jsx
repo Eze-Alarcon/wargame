@@ -3,16 +3,15 @@ import PropTypes from 'prop-types'
 import { GAME_CONFIG } from '../../test/inputs'
 
 BaseButton.propTypes = {
-  id: PropTypes.string,
-  coordinate: PropTypes.string,
+  item: PropTypes.object,
   index: PropTypes.number,
   updateTotalBases: PropTypes.func,
   maxBases: PropTypes.func,
   decreaseBases: PropTypes.func
 }
 
-function BaseButton ({ id, coordinate, index, updateTotalBases, maxBases, decreaseBases }) {
-  const [base, setBase] = useState(false)
+function BaseButton ({ item, index, updateTotalBases, maxBases, decreaseBases }) {
+  const [base, setBase] = useState(item.base)
 
   const nextRow = index !== 0 && index % GAME_CONFIG.BOARD_SIZE === 0
 
@@ -37,9 +36,9 @@ function BaseButton ({ id, coordinate, index, updateTotalBases, maxBases, decrea
         <button
           className={`h-10 w-10 p-1 border-2 ${!base ? 'hover:bg-green-300 bg-none' : 'bg-green-500'}`}
           onClick={placeBase}
-          id={id}
+          id={item.id}
         >
-          <p>{coordinate}</p>
+          <p>{item.coordinate}</p>
         </button>
     </>
   )

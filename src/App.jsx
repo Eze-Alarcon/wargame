@@ -7,6 +7,7 @@ import { useBoard } from './hooks/useBoard.jsx'
 
 function App () {
   const [cpuGame, setCpuGame] = useState(true)
+  const [basesSetup, setBasesSetup] = useState(false)
   const USER_BOARD = useBoard({ id: 1 })
   const CPU_BOARD = useBoard({ id: 2 })
   const { updateTotalBases, maxBasesReached, resetBases, decreaseBases } = useBases()
@@ -19,13 +20,17 @@ function App () {
     resetBases()
   }
 
+  function finishBases () {
+    setBasesSetup(true)
+    alert('Llego la hora de morir por tu pais!')
+  }
+
   return (
     <main className='p-3 '>
       <section className="flex gap-8">
         <Suspense fallback={<p>Cargando mapa</p>} >
           {
-            cpuGame
-              ? <>
+            cpuGame && basesSetup && <>
                 <Board restartGame={restartGame}>
                   {
                     USER_BOARD.map((item, index) =>
@@ -37,7 +42,9 @@ function App () {
                   }
                 </Board>
               </>
-              : <button className='p-2 rounded-md bg-slate-300 hover:bg-slate-600' onClick={soloGame}>1 vs CPU</button>
+          }
+          {
+            !cpuGame && <button className='p-2 rounded-md bg-slate-300 hover:bg-slate-600' onClick={soloGame}>1 vs CPU</button>
           }
         </Suspense>
         <Suspense fallback={<p>Cargando mapa</p>} >
@@ -48,8 +55,7 @@ function App () {
                   CPU_BOARD.map((item, index) =>
                     <BaseButton
                       key={item.id}
-                      id={item.id}
-                      coordinate={item.coordinate}
+                      item={item}
                       index={index}
                       updateTotalBases={updateTotalBases}
                       maxBases={maxBasesReached}
@@ -60,15 +66,20 @@ function App () {
           }
         </Suspense>
       </section>
+      <aside className='flex gap-3'>
+      {
+        !basesSetup && <button className='mt-3 p-2 rounded-md border-2 bg-slate-300 hover:bg-slate-600' onClick={finishBases}>Colocar bases</button>
+      }
       {
         cpuGame &&
         <button
           type='button'
           className='mt-3 p-2 rounded-md border-2 bg-slate-300 hover:bg-slate-600'
           onClick={restartGame}>
-          Restart
+            Restart
         </button>
       }
+      </aside>
     </main>
   )
 }
