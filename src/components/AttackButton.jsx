@@ -28,7 +28,7 @@ function AttackButton ({ item, index }) {
     setActive(true)
 
     // actualizar esto
-    await updatePosition({ id: e.currentTarget.id, idTablero: 1 })
+    await updatePosition({ id: coordinate, idTablero: 1 })
   }
 
   return (

@@ -34,4 +34,4 @@ function loadBases () {
   return bases
 }
 
-export { mapApiArr, mapApiElement }
+export { mapApiArr, mapApiElement, loadBases }

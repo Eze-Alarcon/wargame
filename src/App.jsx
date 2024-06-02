@@ -4,6 +4,7 @@ import { Board } from './components/Board.jsx'
 import { useBoard } from './hooks/useBoard.jsx'
 import { BaseButton } from './components/BaseButton.jsx'
 import { AttackButton } from './components/AttackButton.jsx'
+import { cpuBases } from './api/put.js'
 
 function App () {
   const [cpuGame, setCpuGame] = useState(true)
@@ -25,7 +26,7 @@ function App () {
 
   function finishBases () {
     setBasesSetup(true)
-    alert('Llego la hora de morir por tu pais!')
+    cpuBases()
   }
 
   return (

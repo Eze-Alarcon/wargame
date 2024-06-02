@@ -1,14 +1,15 @@
-import { mapApiElement } from '../utils/utils.js'
+import { mapApiElement, loadBases } from '../utils/utils.js'
 
 async function updatePosition ({ id, idTablero }) {
+  console.log(id)
   const updatedPosition = await fetch('http://localhost:3000/ataque/jugador', {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      tablero: 1,
-      position: 'A3'
+      tablero: idTablero,
+      position: id
     })
   })
   const data = await updatedPosition.json()
@@ -16,7 +17,7 @@ async function updatePosition ({ id, idTablero }) {
   return data
 }
 
-async function placeBase ({ id, idTablero = 2 }) {
+async function placeBase ({ id, idTablero = 1 }) {
   const updatedPosition = await fetch('http://localhost:3000/tablero/cambiarBase', {
     method: 'PATCH',
     headers: {
@@ -31,7 +32,19 @@ async function placeBase ({ id, idTablero = 2 }) {
   return mapApiElement(data)
 }
 
+async function cpuBases () {
+  const bases = loadBases()
+  const requests = bases.map((position) => placeBase({ idTablero: 2, id: position }))
+  try {
+    const results = await Promise.all(requests)
+    console.log('All bases placed:', results)
+  } catch (error) {
+    console.error('Error placing bases:', error)
+  }
+}
+
 export {
   updatePosition,
-  placeBase
+  placeBase,
+  cpuBases
 }
