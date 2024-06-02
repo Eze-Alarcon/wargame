@@ -1,22 +1,9 @@
-import { saveTable } from './post'
+import { mapApiArr } from '../utils/utils'
 
-async function getTable () {
-  return JSON.parse(localStorage.getItem('currentGame'))
-}
-
-async function newGame () {
-  const req = await fetch('http://localhost:3000/tablero/obtener?numero=1')
+async function newGame ({ id }) {
+  const req = await fetch(`http://localhost:3000/tablero/obtener?numero=${id}`)
   const data = await req.json()
-  const newArr = data.map((item) => {
-    return {
-      coordinate: item.position,
-      base: item.haveBase,
-      attacked: item.hasAttacked,
-      id: item._id
-    }
-  })
-  saveTable(newArr)
-  return newArr
+  return mapApiArr(data)
 }
 
-export { newGame, getTable }
+export { newGame }

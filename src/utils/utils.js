@@ -1,12 +1,22 @@
-import { newGame } from '../api/get'
-
-async function innitGame () {
-  // const savedMap = await getTable()
-  // if (savedMap !== null) return savedMap
-  const newMap = await newGame()
-  return newMap
+function mapApiArr (data) {
+  const newData = data.map((item) => {
+    return {
+      coordinate: item.position,
+      base: item.haveBase,
+      attacked: item.hasAttacked,
+      id: item._id
+    }
+  })
+  return newData
 }
 
-export {
-  innitGame
+function mapApiElement (data) {
+  return {
+    coordinate: data.position,
+    base: data.haveBase,
+    attacked: data.hasAttacked,
+    id: data._id
+  }
 }
+
+export { mapApiArr, mapApiElement }
